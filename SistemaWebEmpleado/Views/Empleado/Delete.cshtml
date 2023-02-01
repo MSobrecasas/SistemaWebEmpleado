@@ -1,0 +1,39 @@
+﻿@model SistemaWebEmpleado.Models.Empleado
+@{
+	ViewData["Title"] = "Details Empleado";
+}
+<section>
+
+	<div>
+		<h1>Editar Empleado</h1>
+	</div>
+
+	@using (Html.BeginForm("Delete", "Empleado", FormMethod.Post))
+	{
+		<div>
+			<h3>
+				@Html.DisplayNameFor(model=>model.Nombre)
+				@Html.DisplayFor(model=>model.Nombre)
+			</h3>
+			<h3>
+				@Html.DisplayNameFor(model=>model.Apellido)
+				@Html.DisplayFor(model=>model.Apellido)
+			</h3>
+			<h3>
+				@Html.DisplayNameFor(model=>model.Legajo)
+				@Html.DisplayFor(model=>model.Legajo)
+			</h3>
+			<h3>
+				@Html.DisplayNameFor(model=>model.FechaNacimiento)
+				@Html.DisplayFor(model=>model.FechaNacimiento)
+			</h3>
+			<h3>
+				@Html.DisplayNameFor(model=>model.Titulo)
+				@Html.DisplayFor(model=>model.Titulo)
+			</h3>
+		</div>	
+
+		<input  type="submit" action="Delete"/>
+		@Html.ActionLink("Volver a Index","Index","Home")
+	}
+</section>

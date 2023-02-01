@@ -61,23 +61,71 @@ namespace SistemaWebEmpleado.Controllers
 
 		//GET Empelado/GetByName/{name}
 		[HttpGet]
-		public ActionResult GetByName(string name)
+		public ActionResult GetByTitulo(string titulo)
 		{
-			Empleado empleado = (from e in context.Empleados
-								where e.Nombre == name
-								select e).SingleOrDefault();
+			var empleados = (from e in context.Empleados
+							 where e.Titulo == titulo
+							 select e).ToList();
 
-			if (empleado == null)
+			if (empleados == null)
 			{
 				return NotFound();
 			}
 
-			return View("GetByName", empleado);
+			return View("GetByName", empleados);
 		}
 
 		private Empleado TraerUna(int id)
 		{
 			return context.Empleados.Find(id);
+		}
+
+		//GET Empleado/Edit/{id}
+		[HttpGet]
+		public ActionResult Edit(int id)
+		{
+			Empleado empleado = TraerUna(id);
+
+			if (empleado == null) return NotFound();
+
+			return View("Edit", empleado);
+
+		}
+
+		//POST Empleado/Edit
+		[HttpPost]
+		public ActionResult Edit(Empleado empleado)
+		{
+			if (empleado == null) return NotFound();
+
+			context.Empleados.Update(empleado);
+			context.SaveChanges();
+			return RedirectToAction("Index");
+		}
+
+		//GET Empleado/Delete/{id}
+		[HttpGet]
+		public ActionResult Delete(int id)
+		{
+			var empleado = TraerUna(id);
+
+			if (empleado == null) return NotFound();
+
+			return View("Delete", empleado);
+		}
+
+		//POST Empleado/delete/{id}
+		[ActionName("Delete")]
+		[HttpPost]
+		public ActionResult DeleteConfirmed(int id)
+		{
+			Empleado empleado = TraerUna(id);
+
+			if (empleado == null) return NotFound();
+
+			context.Empleados.Remove(empleado);
+			context.SaveChanges();
+			return RedirectToAction("Index");
 		}
 	}
 }

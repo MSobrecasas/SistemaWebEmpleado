@@ -8,18 +8,26 @@
 	<h2>Ver Detalle</h2>
 	@Html.ActionLink("Volver a Index","Index","Empleado")
 	<div>
-		<p>
+		<h3>
 					@Html.DisplayNameFor(model=>model.Nombre)
 					@Html.DisplayFor(model=>model.Nombre)
-		</p>
-		<p>
+		</h3>
+		<h3>
 					@Html.DisplayNameFor(model=>model.Apellido)
 					@Html.DisplayFor(model=>model.Apellido)
-		</p>
-		<p>
-					@Html.DisplayNameFor(model=>model.FechaNacimiento)
-					@Html.DisplayFor(model=>model.FechaNacimiento)
-		</p>
+		</h3>
+		<h3>
+					@Html.DisplayNameFor(model=>model.Legajo)
+					@Html.DisplayFor(model=>model.Legajo)
+		</h3>
+		<h3>
+			@Html.DisplayNameFor(model=>model.FechaNacimiento)
+			@Html.DisplayFor(model=>model.FechaNacimiento)
+		</h3>
+		<h3>
+			@Html.DisplayNameFor(model=>model.Titulo)
+			@Html.DisplayFor(model=>model.Titulo)
+		</h3>
 	</div>
 
 

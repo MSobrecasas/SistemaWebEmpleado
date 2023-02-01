@@ -20,7 +20,7 @@
 		</tr>
 	@foreach (var item in Model)
 	{
-				<tr>
+		<tr>
 					<td>
 						@Html.DisplayFor(modelItem=>item.Id)
 					</td> 
@@ -37,12 +37,13 @@
 						@Html.DisplayFor(modelItem=>item.FechaNacimiento)
 					</td> 
 					<td>
-						@Html.DisplayFor(modelItem=>item.Titulo)
+						@Html.ActionLink(item.Titulo,"GetByTitulo","Empleado",new {titulo=item.Titulo})
 					</td> 
 					<td>
 						@Html.ActionLink("Detalle","Details","Empleado",new {id=item.Id})
+						@Html.ActionLink("Editar","Edit","Empleado",new {id=item.Id})
 						@Html.ActionLink("Eliminar","Delete","Empleado",new {id=item.Id})
 					</td>
-				</tr>
+		</tr>
 	}
 	</table>

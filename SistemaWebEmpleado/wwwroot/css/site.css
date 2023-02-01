@@ -32,6 +32,32 @@ img{
     width: 30px;
 }
 
-th,td{
-    width: 100px;
+
+td:last-child{
+    display:grid;
+    grid-template-columns: 1fr;
+}
+
+table {
+    border: 1px solid #000;
+    margin: 5px;
+}
+
+th, td {
+    width: 150px;
+    vertical-align: middle;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    padding: 0.3em;
+    caption-side: bottom;
+    text-align: center;
+}
+
+
+th {
+    background: #eee;
+}
+
+label{
+    width:300px;
 }

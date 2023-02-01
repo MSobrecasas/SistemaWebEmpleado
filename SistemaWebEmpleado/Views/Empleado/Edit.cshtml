@@ -1,0 +1,44 @@
+﻿@model SistemaWebEmpleado.Models.Empleado
+@{
+	ViewData["Title"] = "Details Empleado";
+}
+<section>
+
+	<div>
+		<h1>Editar Empleado</h1>
+	</div>
+
+	@using (Html.BeginForm("Create", "Empleado", FormMethod.Post))
+	{
+			<div>
+				<h3>
+					@Html.LabelFor(model=>model.Nombre)
+					@Html.TextBoxFor(model=>model.Nombre)
+					@Html.ValidationMessageFor(model=>model.Nombre)
+				</h3>
+				<h3>
+					@Html.LabelFor(model=>model.Apellido)
+					@Html.TextBoxFor(model=>model.Apellido)
+					@Html.ValidationMessageFor(model=>model.Apellido)
+				</h3>
+				<h3>
+					@Html.LabelFor(model=>model.Legajo)
+					@Html.TextBoxFor(model=>model.Legajo)
+					@Html.ValidationMessageFor(model=>model.Legajo)
+				</h3>
+				<h3>
+					@Html.LabelFor(model=>model.FechaNacimiento)
+					@Html.TextBoxFor(model=>model.FechaNacimiento)
+					@Html.ValidationMessageFor(model=>model.FechaNacimiento)
+				</h3>
+				<h3>
+					@Html.LabelFor(model=>model.Titulo)
+					@Html.TextBoxFor(model=>model.Titulo)
+					@Html.ValidationMessageFor(model=>model.Titulo)
+				</h3>
+			</div>			
+
+			<input  type="submit" action="Edit"/>
+			@Html.ActionLink("Volver a Index","Index","Home")
+	}
+</section>
